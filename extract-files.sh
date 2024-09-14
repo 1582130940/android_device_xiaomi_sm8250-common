@@ -82,6 +82,10 @@ function blob_fixup() {
             [ "$2" = "" ] && return 0
             sed -i 's|ro.product.vendor.device|ro.vendor.radio.midevice|g' "${2}"
             ;;
+        vendor/etc/seccomp_policy/atfwd@2.0.policy)
+            [ "$2" = "" ] && return 0
+            echo 'gettid: 1' >> ${2}
+            ;;
         *)
             return 1
             ;;
