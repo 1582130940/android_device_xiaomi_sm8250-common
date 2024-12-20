@@ -181,7 +181,7 @@ PRODUCT_PACKAGES += \
     fastbootd
 
 # Fingerprint
-ifneq ($(TARGET_IS_TABLET),true)
+ifeq ($(filter dagu pipa,$(TARGET_DEVICE)),)
 PRODUCT_PACKAGES += \
     android.hardware.biometrics.fingerprint@2.3-service.xiaomi
 
