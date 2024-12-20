@@ -73,7 +73,7 @@ write_headers "alioth apollon cas cmi dagu elish enuma lmi munch pipa psyche thy
 write_makefiles "${MY_DIR}/proprietary-files.txt" true
 
 # Exclude blobs from tablet builds
-printf '\n%s\n' 'ifneq ($(TARGET_IS_TABLET),true)' >> "$PRODUCTMK"
+printf '\n%s\n' 'ifeq ($(filter dagu elish pipa,$(TARGET_DEVICE)),)' >> "$PRODUCTMK"
 
 write_makefiles "${MY_DIR}/proprietary-files-phone.txt" true
 
